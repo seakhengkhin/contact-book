@@ -126,6 +126,7 @@ contact-book/
 
 - `DATABASE_URL`: URL for the SQLite database.
 - `JWT_SECRET`: Secret key for JWT authentication.
+- `PORT`: Port number for the backend server.
 
 ### Frontend (`contact-book/.env`)
 
