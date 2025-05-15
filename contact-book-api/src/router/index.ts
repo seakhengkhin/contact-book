@@ -1,4 +1,5 @@
 var cors = require('cors')
+import { NextFunction, Request, Response } from "express";
 import { registerNewUser, loginUser } from "../controller/auth.controller";
 import { getAllContacts, upsertContact, deleteContact } from "../controller/contact.controller";
 import { uploadFile } from "../controller/uploadFile.controller";
@@ -11,7 +12,7 @@ const router = (app: any) => {
         origin: ['http://localhost:5173']
     };
     app.use(cors(corsOptions));
-    app.get("/", (_: any, res: any, __: any) => {
+    app.get("/", (req: Request, res: Response, next: NextFunction) => {
         res.json({data: {}, errorCode: 0, message: 'welcome to contact book api'});
     });
     app.post("/api/register", registerNewUser);

@@ -1,9 +1,16 @@
-const getErrorMessage = (e: any) => {
+class CustomError extends Error {
+    status?: number;
+    code?: string;
+    meta?: {
+        target?: string[];
+    };          
+}
+const getErrorMessage = (e: CustomError) => {
     switch (e.code) {
         case 'P2002': 
-            return `${e.meta.target} already exist`;
+            return `${e?.meta?.target} already exist`;
         default:
-            return e.message ?? `${e.code} ${e.meta.target}`;
+            return e.message ?? `${e.code} ${e?.meta?.target}`;
     };
 } 
 const getErrorCode = (e: any) => {

@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import ErrorCodeEnum from "../enum/errorCodeEnum";
 
-const uploadFile = async (req: any, res: any) => {
+const uploadFile = async (req: Request, res: Response) => {
     try {
         if (!req.file) {
             return res.status(400).json({
