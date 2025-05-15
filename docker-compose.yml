@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   backend:
+    container_name: contact-book-api
     build:
       context: ./contact-book-api
       dockerfile: Dockerfile
@@ -8,6 +9,7 @@ services:
       - "10000:10000"
 
   frontend:
+    container_name: contact-book
     build:
       context: ./contact-book
       dockerfile: Dockerfile
