@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { generateNewError } from "../helper/prismaHelper";
+import { generateNewError } from "../helper/errorCodeHelper";
 import ErrorCodeEnum from "../enum/errorCodeEnum";
 import { IContact } from "../interface/contact";
 

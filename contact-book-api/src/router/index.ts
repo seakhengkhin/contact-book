@@ -12,7 +12,7 @@ const router = (app: any) => {
     };
     app.use(cors(corsOptions));
     app.get("/", (_: any, res: any, __: any) => {
-        res.json({Data: {}, errorCode: 0, message: 'welcome to contact book api'});
+        res.json({data: {}, errorCode: 0, message: 'welcome to contact book api'});
     });
     app.post("/api/register", registerNewUser);
     app.post("/api/login", loginUser);

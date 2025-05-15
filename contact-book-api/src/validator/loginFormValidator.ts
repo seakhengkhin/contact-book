@@ -1,5 +1,5 @@
 import { IUser } from "../interface/registerNewUser";
-import { generateNewError } from "../helper/prismaHelper";
+import { generateNewError } from "../helper/errorCodeHelper";
 import ErrorCodeEnum from "../enum/errorCodeEnum";
 export function loginFormValidator (req: IUser) {
     if(!req.email)

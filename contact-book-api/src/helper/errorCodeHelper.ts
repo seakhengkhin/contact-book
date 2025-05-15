@@ -1,4 +1,4 @@
-const getPrismaErrorMessage = (e: any) => {
+const getErrorMessage = (e: any) => {
     switch (e.code) {
         case 'P2002': 
             return `${e.meta.target} already exist`;
@@ -6,7 +6,7 @@ const getPrismaErrorMessage = (e: any) => {
             return e.message ?? `${e.code} ${e.meta.target}`;
     };
 } 
-const getPrismaErrorCode = (e: any) => {
+const getErrorCode = (e: any) => {
     return `${e.code}${e.meta?.target}`.toUpperCase();
 } 
 const generateNewError = (code: string, message: string, field: string) => {
@@ -20,7 +20,7 @@ const generateNewError = (code: string, message: string, field: string) => {
     return error;
 }
 export {
-    getPrismaErrorMessage,
-    getPrismaErrorCode,
+    getErrorMessage,
+    getErrorCode,
     generateNewError
 }

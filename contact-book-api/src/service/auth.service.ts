@@ -3,7 +3,7 @@ import { IUser } from "../interface/registerNewUser";
 import { hash, compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import ErrorCodeEnum from "../enum/errorCodeEnum";
-import { generateNewError } from "../helper/prismaHelper";
+import { generateNewError } from "../helper/errorCodeHelper";
 
 const prisma = new PrismaClient();
 

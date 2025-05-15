@@ -1,10 +1,10 @@
 import ErrorCodeEnum from "../enum/errorCodeEnum";
-import { getPrismaErrorMessage, getPrismaErrorCode } from "../helper/prismaHelper";
+import { getErrorMessage, getErrorCode } from "../helper/errorCodeHelper";
 
 export const handleError = (e: any) => {
     return {
         data: {},
-        errorCode: getPrismaErrorCode(e) || ErrorCodeEnum.GeneralError,
-        message: getPrismaErrorMessage(e) || "An unexpected error occurred.",
+        errorCode: getErrorCode(e) || ErrorCodeEnum.GeneralError,
+        message: getErrorMessage(e) || "An unexpected error occurred.",
     };
 };
