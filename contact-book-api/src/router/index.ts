@@ -8,7 +8,7 @@ import { uploadMiddleware } from "../middleware/file";
 
 const router = (app: any) => {
     var corsOptions = {
-        origin: '*',
+        origin: ['http://localhost:5173']
     };
     app.use(cors(corsOptions));
     app.get("/", (_: any, res: any, __: any) => {
