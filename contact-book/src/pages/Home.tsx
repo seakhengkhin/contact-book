@@ -144,48 +144,50 @@ export function Home() {
         </div>
         {loading ? (
           <p className="text-center text-gray-600">Loading contacts...</p>
-        ) : (
+        ) : contacts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {contacts.map((contact) => (
-             <div
+              <div
                 key={contact.id}
                 onClick={() => openModal(contact)}
                 className="bg-white rounded-lg shadow-md p-4 flex items-center space-x-4 cursor-pointer hover:shadow-lg transition-shadow group"
-            >
+              >
                 <img
-                src={contact.profileImage}
-                alt={contact.fullName}
-                className="w-16 h-16 rounded-full border border-gray-300"
+                  src={contact.profileImage}
+                  alt={contact.fullName}
+                  className="w-16 h-16 rounded-full border border-gray-300"
                 />
                 <div className="flex-1">
-                <h2 className="text-lg font-medium text-gray-800">{contact.fullName}</h2>
-                <p className="text-sm text-gray-600">{contact.email}</p>
+                  <h2 className="text-lg font-medium text-gray-800">{contact.fullName}</h2>
+                  <p className="text-sm text-gray-600">{contact.email}</p>
                 </div>
                 <button
-                onClick={(e) => {
+                  onClick={(e) => {
                     e.stopPropagation();
                     confirmDelete(contact);
-                }}
-                className="hidden group-hover:block px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all"
+                  }}
+                  className="hidden group-hover:block px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all"
                 >
-                <svg
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={2}
-                >
+                  >
                     <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3m-4 0h14"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3m-4 0h14"
                     />
-                </svg>
+                  </svg>
                 </button>
-            </div>
+              </div>
             ))}
           </div>
+        ) : (
+          <p className="text-center text-gray-600">No contacts found.</p>
         )}
       </main>
       {isModalOpen && (
