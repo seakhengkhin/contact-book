@@ -166,7 +166,7 @@ export function Home() {
                     e.stopPropagation();
                     confirmDelete(contact);
                   }}
-                  className="hidden group-hover:block px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all"
+                  className="block sm:hidden px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all sm:group-hover:block"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
