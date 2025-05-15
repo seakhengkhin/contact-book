@@ -33,9 +33,9 @@ export function ContactModal({ contact, onClose }: ContactModalProps) {
       setIsUploading(false);
 
       if (uploadResponse.IsSuccess) {
-        return uploadResponse.Data.filePath;
+        return uploadResponse.data.filePath;
       } else {
-        setAlert({ type: "error", message: uploadResponse.Message || "Failed to upload file" });
+        setAlert({ type: "error", message: uploadResponse.message || "Failed to upload file" });
         return null;
       }
     } catch (error) {
@@ -63,7 +63,7 @@ export function ContactModal({ contact, onClose }: ContactModalProps) {
           setAlert({ type: "success", message: "Contact saved successfully" });
           isNeedRefresh = true;
         } else {
-          setAlert({ type: "error", message: response.Message || "Failed to save contact" });
+          setAlert({ type: "error", message: response.message || "Failed to save contact" });
         }
       }
     } catch (error) {

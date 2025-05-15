@@ -10,9 +10,9 @@ const registerNewUser = async (req: Request, res: Response, next: NextFunction) 
         addNewUserFormValidator(req.body);
         const result = await registerUserService(req.body);
         res.status(200).json({
-            Data: result,
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "User registered successfully",
+            data: result,
+            errorCode: ErrorCodeEnum.Success,
+            message: "User registered successfully",
         });
     } catch (error: any) {
         res.status(200).json(handleError(error));
@@ -24,9 +24,9 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
         loginFormValidator(req.body);
         const result = await loginUserService(req.body);
         res.status(200).json({
-            Data: result,
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "Login successful",
+            data: result,
+            errorCode: ErrorCodeEnum.Success,
+            message: "Login successful",
         });
     } catch (error: any) {
         res.status(200).json(handleError(error));

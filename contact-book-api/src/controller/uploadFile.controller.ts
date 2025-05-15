@@ -4,24 +4,24 @@ const uploadFile = async (req: any, res: any) => {
     try {
         if (!req.file) {
             return res.status(400).json({
-                Data: {},
-                ErrorCode: ErrorCodeEnum.NoFileUploaded,
-                Message: "No file uploaded",
+                data: {},
+                errorCode: ErrorCodeEnum.NoFileUploaded,
+                message: "No file uploaded",
             });
         }
         res.status(200).json({
-            Data: {
+            data: {
                 filePath: `/uploads/${req.file.filename}`,
                 fileName: req.file.filename,
             },
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "File uploaded successfully",
+            errorCode: ErrorCodeEnum.Success,
+            message: "File uploaded successfully",
         });
     } catch (error) {
         res.status(200).json({
-            Data: {},
-            ErrorCode: ErrorCodeEnum.GeneralError,
-            Message: "An error occurred during file upload",
+            data: {},
+            errorCode: ErrorCodeEnum.GeneralError,
+            message: "An error occurred during file upload",
         });
     }
 };

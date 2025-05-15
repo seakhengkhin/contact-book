@@ -1,18 +1,18 @@
 import EnumApiErrorCode from '../enums/enumApiErrorCode';
 
 export interface IApiResponse<T = any> {
-  Data: T,
-  ErrorCode: EnumApiErrorCode,
-  Message: string,
+  data: T,
+  errorCode: EnumApiErrorCode,
+  message: string,
 }
 
 export class ApiResponse<T = any> implements IApiResponse {
-  Data: T = {} as T;
-  ErrorCode: EnumApiErrorCode = EnumApiErrorCode.Success;
-  Message = '';
+  data: T = {} as T;
+  errorCode: EnumApiErrorCode = EnumApiErrorCode.Success;
+  message = '';
 
   get IsSuccess(): boolean {
-    return this.ErrorCode === EnumApiErrorCode.Success;
+    return this.errorCode === EnumApiErrorCode.Success;
   }
 
   constructor(init: IApiResponse) {

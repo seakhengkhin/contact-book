@@ -19,14 +19,14 @@ export function Login() {
       const user = { email, password } as IUser;
       const response = await api.callLoginUser(user);
       if (response.IsSuccess) {
-        const token = response.Data.token;
+        const token = response.data.token;
         Cookies.set("authToken", token, { expires: 7 });
         setAlert({ type: "success", message: "Login successful" });
         setTimeout(() => {
             navigate("/");
         }, 2000);
       } else {
-        setAlert({ type: "error", message: response.Message || "Login failed" });
+        setAlert({ type: "error", message: response.message || "Login failed" });
       }
     } catch (err) {
       setAlert({ type: "error", message: "An error occurred during login" });

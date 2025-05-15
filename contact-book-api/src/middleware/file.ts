@@ -31,15 +31,15 @@ export const uploadMiddleware = (req: any, res: any, next: any) => {
     upload.single("file")(req, res, (err: any) => {
         if (err instanceof multer.MulterError) {
             return res.status(200).json({
-                Data: {},
-                ErrorCode: ErrorCodeEnum.FileUploadError,
-                Message: err,
+                data: {},
+                errorCode: ErrorCodeEnum.FileUploadError,
+                message: err,
             });
         } else if (err) {
             return res.status(200).json({
-                Data: {},
-                ErrorCode: ErrorCodeEnum.FileUploadError,
-                Message: err.message || "An error occurred during file upload",
+                data: {},
+                errorCode: ErrorCodeEnum.FileUploadError,
+                message: err.message || "An error occurred during file upload",
             });
         }
         next();

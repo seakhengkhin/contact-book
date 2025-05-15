@@ -39,13 +39,13 @@ export function Register() {
       } as IUser);
 
       if (response.IsSuccess) {
-        Cookies.set("authToken", response.Data.token, { expires: 7 });
+        Cookies.set("authToken", response.data.token, { expires: 7 });
         setAlert({ type: "success", message: "Registration successful! Redirecting..." });
         setTimeout(() => {
           navigate("/");
         }, 2000);
       } else {
-        setAlert({ type: "error", message: response.Message || "Registration failed." });
+        setAlert({ type: "error", message: response.message || "Registration failed." });
       }
     } catch (error) {
       setAlert({ type: "error", message: "An error occurred during registration." });

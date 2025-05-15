@@ -8,9 +8,9 @@ const getAllContacts = async (req: Request, res: Response) => {
         const userId = req.user.id;
         const contacts = await getAllContactsService(userId);
         res.status(200).json({
-            Data: contacts,
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "Success",
+            data: contacts,
+            errorCode: ErrorCodeEnum.Success,
+            message: "Success",
         });
     } catch (error) {
         res.status(200).json(handleError(error));
@@ -26,9 +26,9 @@ const upsertContact = async (req: Request, res: Response) => {
         }
         const contact = await upsertContactService(userId, operator, contactData);
         res.status(200).json({
-            Data: contact,
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "Success",
+            data: contact,
+            errorCode: ErrorCodeEnum.Success,
+            message: "Success",
         });
     } catch (error) {
         res.status(200).json(handleError(error));
@@ -41,9 +41,9 @@ const deleteContact = async (req: Request, res: Response) => {
         const { id } = req.params;
         await deleteContactService(userId, parseInt(id));
         res.status(200).json({
-            Data: {},
-            ErrorCode: ErrorCodeEnum.Success,
-            Message: "Contact deleted successfully",
+            data: {},
+            errorCode: ErrorCodeEnum.Success,
+            message: "Contact deleted successfully",
         });
     } catch (error) {
         res.status(200).json(handleError(error));

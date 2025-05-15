@@ -3,8 +3,8 @@ import { getPrismaErrorMessage, getPrismaErrorCode } from "../helper/prismaHelpe
 
 export const handleError = (e: any) => {
     return {
-        Data: {},
-        ErrorCode: getPrismaErrorCode(e) || ErrorCodeEnum.GeneralError,
-        Message: getPrismaErrorMessage(e) || "An unexpected error occurred.",
+        data: {},
+        errorCode: getPrismaErrorCode(e) || ErrorCodeEnum.GeneralError,
+        message: getPrismaErrorMessage(e) || "An unexpected error occurred.",
     };
 };

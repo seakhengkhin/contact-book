@@ -12,14 +12,14 @@ export default {
     callGetAllContacts(): Promise<ApiResponse<IContact[]>> {
       const response = getResponse(apiCalling.callGetAllContacts());
       return response.then((data) => {
-        data.Data = data.Data.map((contact: IContact) => new Contact(contact));
+        data.data = data.data.map((contact: IContact) => new Contact(contact));
         return data;
       });
     },
     callUpsertContact(contact: IContact): Promise<ApiResponse<null>> {
       const response = getResponse(apiCalling.callUpsertContact(contact));
       return response.then((data) => {
-        data.Data = new Contact(data.Data);
+        data.data = new Contact(data.data);
         return data;
       });
     },

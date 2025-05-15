@@ -12,9 +12,9 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) {
             return res.status(401).json({
-                Data: {},
-                ErrorCode: ErrorCodeEnum.Unauthorized,
-                Message: "Unauthorized: No token provided",
+                data: {},
+                errorCode: ErrorCodeEnum.Unauthorized,
+                message: "Unauthorized: No token provided",
             });
         }
         const decoded = verify(token, process.env.JWT_SECRET || "default");
@@ -22,9 +22,9 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
         next();
     } catch (error) {
         return res.status(401).json({
-            Data: {},
-            ErrorCode: ErrorCodeEnum.Unauthorized,
-            Message: "Invalid or expired token",
+            data: {},
+            errorCode: ErrorCodeEnum.Unauthorized,
+            message: "Invalid or expired token",
         });
     }
 };

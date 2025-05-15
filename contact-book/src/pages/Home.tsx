@@ -43,9 +43,9 @@ export function Home() {
       setLoading(true);
       const response = await api.callGetAllContacts();
       if (response.IsSuccess) {
-        setContacts(response.Data);
+        setContacts(response.data);
       } else {
-        setAlert({ type: "error", message: response.Message || "Failed to fetch contacts." });
+        setAlert({ type: "error", message: response.message || "Failed to fetch contacts." });
       }
     } catch (error) {
       setAlert({ type: "error", message: "An error occurred while fetching contacts." });
@@ -90,7 +90,7 @@ export function Home() {
         setAlert({ type: "success", message: "Contact deleted successfully!" });
         fetchContacts();
       } else {
-        setAlert({ type: "error", message: response.Message || "Failed to delete contact." });
+        setAlert({ type: "error", message: response.message || "Failed to delete contact." });
       }
     } catch (error) {
       setAlert({ type: "error", message: "An error occurred while deleting the contact." });

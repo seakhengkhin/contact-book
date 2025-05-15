@@ -1,4 +1,4 @@
 export interface IBaseResponse {
-    ErrorCode: number,
-    ErrorMessage: string,
+    errorCode: number,
+    message: string,
 }
