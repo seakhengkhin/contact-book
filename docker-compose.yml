@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./contact-book-api
+      dockerfile: Dockerfile
+    ports:
+      - "10000:10000"
+
+  frontend:
+    build:
+      context: ./contact-book
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
